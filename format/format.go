@@ -1,5 +1,0 @@
-package format
-
-func format() {
-
-}
