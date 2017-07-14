@@ -1,4 +1,4 @@
-package testfix
+package color
 
 import colorful "github.com/lucasb-eyer/go-colorful"
 
