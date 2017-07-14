@@ -10,16 +10,16 @@ var (
 
 // Router is router
 type Router struct {
-	Services map[string]func([]byte) []byte
+	Services map[string]func(string) string
 }
 
 // NewRouter new router
 func NewRouter() *Router {
-	return &Router{Services: make(map[string]func([]byte) []byte)}
+	return &Router{Services: make(map[string]func(string) string)}
 }
 
 // Register handle under name
-func (router *Router) Register(name string, handle func([]byte) []byte) error {
+func (router *Router) Register(name string, handle func(string) string) error {
 	if _, exist := router.Services[name]; exist {
 		return ErrorRouteAlreadyRegistered
 	}
@@ -28,9 +28,9 @@ func (router *Router) Register(name string, handle func([]byte) []byte) error {
 }
 
 // Process route request
-func (router Router) Process(name string, request []byte) ([]byte, error) {
+func (router Router) Process(name string, request string) (string, error) {
 	if handle, exist := router.Services[name]; exist {
 		return handle(request), nil
 	}
-	return nil, ErrorRouteDoesNotExist
+	return "", ErrorRouteDoesNotExist
 }

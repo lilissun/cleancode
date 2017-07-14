@@ -13,7 +13,7 @@ var (
 	router      = routing.NewRouter()
 )
 
-func register(router *routing.Router, name string, handle func([]byte) []byte) {
+func register(router *routing.Router, name string, handle func(string) string) {
 	if err := router.Register(name, handle); err != nil {
 		panic(err)
 	}

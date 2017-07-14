@@ -1,8 +1,6 @@
-package main
+package namefix
 
 import (
-	"encoding/json"
-
 	colorful "github.com/lucasb-eyer/go-colorful"
 )
 
@@ -20,26 +18,10 @@ type HSLColor struct {
 	Luminance  float64
 }
 
-const (
-	serviceNameRGBtoHSL = "rgb2hsl"
-)
-
-func init() {
-	register(router, serviceNameRGBtoHSL, fromRGBtoHSL)
-}
-
-func fromRGBtoHSL(req string) string {
-	var rgb RGBColor
-	err := json.Unmarshal([]byte(req), &rgb)
-	if err != nil {
-		return err.Error()
-	}
+// FromRGBtoHSL converts color in RGB space to HSL space
+func FromRGBtoHSL(rgb RGBColor) HSLColor {
 	color := colorful.Color{R: rgb.Red, G: rgb.Green, B: rgb.Blue}
 	var hsl HSLColor
 	hsl.Hue, hsl.Saturation, hsl.Luminance = color.Hsl()
-	resp, err := json.Marshal(hsl)
-	if err != nil {
-		return err.Error()
-	}
-	return string(resp)
+	return hsl
 }

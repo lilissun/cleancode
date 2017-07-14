@@ -13,10 +13,10 @@ func (router *Router) HTTPHandle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	body := r.FormValue("body")
-	response, err := router.Process(name, []byte(body))
+	response, err := router.Process(name, body)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("service error %s", err), 500)
 		return
 	}
-	w.Write(response)
+	w.Write([]byte(response))
 }
