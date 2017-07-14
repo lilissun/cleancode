@@ -1,4 +1,4 @@
-package namefix
+package test
 
 import (
 	colorful "github.com/lucasb-eyer/go-colorful"
