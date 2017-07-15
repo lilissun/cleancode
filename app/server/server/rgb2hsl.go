@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 
-	"bitbucket.org/lilissun/cleancode/test/color"
+	"bitbucket.org/lilissun/cleancode/color/color"
 )
 
 // Processor Name

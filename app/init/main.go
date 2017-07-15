@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	flagAddress = flag.String("addr", "0.0.0.0:80", "listen address")
+	flagAddress = flag.String("addr", "0.0.0.0:3000", "listen address")
 )
 
 func route(name string, req []byte) ([]byte, error) {
