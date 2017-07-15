@@ -9,7 +9,8 @@ each of which has several coding stages.
 
 Color Module, a warper of go-colorful package,
 supports encodings and conversions of RGB and HSL color spaces.
-More color spaces can be easily extended.
+This module is for demonstration purpose only.
+Applications should use go-colorful directly. 
 It has the following cleaning stages.
 
 ### Format
@@ -26,7 +27,7 @@ goimports -w rgb2hsl.go
 
 Similarly, readers can find many formatters for other languages,
 e.g., [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for C++,
-[UnCrustify](https://github.com/uncrustify/uncrustify) for
+[Uncrustify](https://github.com/uncrustify/uncrustify) for
 C/C++/C#/Objective-C/D/Java/Pawn/VALA,
 [JS Beautify](https://www.npmjs.com/package/js-beautify) for JavaScript.
 
