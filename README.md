@@ -49,9 +49,9 @@ rgb2hsl.go:13:7: if block ends with a return statement, so drop this else and ou
 
 Based on the results of golint,
 [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/format/rgb2hsl.go)
-in the color/format folder can be rewritten as
+in the *format* folder can be rewritten as
 [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/lint/rgb2hsl.go)
-in the color/lint folder.
+in the *lint* folder as an example.
 
 ## App Module
 
