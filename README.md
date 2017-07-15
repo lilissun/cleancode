@@ -1,4 +1,4 @@
-# cleancode
+# Clean Code
 
 This project aims to provide some hints of clean coding style.
 
@@ -10,7 +10,7 @@ each of which has several coding stages.
 Color Module, a warper of go-colorful package,
 supports encodings and conversions of RGB and HSL color spaces.
 This module is for demonstration purpose only.
-Applications should use go-colorful directly. 
+Applications should use go-colorful directly.
 It has the following cleaning stages.
 
 ### Format
