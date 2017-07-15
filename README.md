@@ -19,14 +19,16 @@ various tools based on the programming languages.
 For instance, the code in format folder can be automatically
 formatted by [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports).
 
+```shell
 cd color/format
 goimports -w rgb2hsl.go
+```
 
-Similarly, readers can find formatter for other languages,
+Similarly, readers can find many formatters for other languages,
 e.g., [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for C++,
 [UnCrustify](https://github.com/uncrustify/uncrustify) for
 C/C++/C#/Objective-C/D/Java/Pawn/VALA,
-[JS Beautify](https://www.npmjs.com/package/js-beautify) for JavaScript. 
+[JS Beautify](https://www.npmjs.com/package/js-beautify) for JavaScript.
 
 
 ### Lint
