@@ -63,13 +63,36 @@ When *Convert(c)* is call in some application,
 programmers can misunderstand the functionality of *Convert*
 and the structure of *c*.
 
-Hence, in the *name* folder, we propose two methods to refine the code.
+Hence, in the *name* folder, we propose the following to refine the code.
 1. We define two structures *RGBColor* and *HSLColor* to hold the color values.
 2. We define the function *ToHSL* (*ToRGB* resp.)
 as a member method in *RGBColor* (*HSLColor* resp.) for color conversion.
 
 Other member methods can be defined as well,
-e.g., constructor and equality checking function. 
+e.g., constructor and equality checking function.
+
+### Test
+
+The necessities of tests can be well illustrated by the test written in the *test* folder.
+Even though we believed that the code is correct
+(it is indeed correct in some sense),
+the equality checking can fail because of the careless rounding.
+
+In Go programming language, test suite is provided as a standard tool.
+For instance, we can run the following commands.
+
+```
+$ cd color/test
+$ go test
+--- FAIL: TestConvertRGBtoHSL (0.00s)
+        name_test.go:21: convert hsl=[{270 0.8 0.5}] to rgb=[{0.49999999999999967 0.09999999999999998 0.9}] but expect=[{0.5 0.1 0.9}]
+FAIL
+exit status 1
+FAIL    bitbucket.org/lilissun/cleancode/color/test     0.006s
+```
+
+The fix can be found in the *color* folder.
+We use a helper function called *round* to solve this problem. 
 
 ## App Module
 
