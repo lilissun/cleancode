@@ -4,8 +4,10 @@ import (
 	"testing"
 )
 
-// NewRGBColor(0.5, 0.1, 0.9)
-// should have
+// Red = 0.5
+// Green = 0.1
+// Blue = 0.9
+// should have the same color as
 // Hue == 270
 // Saturation == 0.8
 // Luminance == 0.5

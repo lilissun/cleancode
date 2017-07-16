@@ -12,7 +12,8 @@ supports encodings and conversions of RGB and HSL color spaces.
 It has the following cleaning stages.
 
 > This color module is for demonstration purpose only.
-> Applications should use go-colorful directly.
+> Applications should use go-colorful directly,
+> and define RGBColor and HSLColor there if necessary.
 
 ### Format
 
@@ -92,7 +93,7 @@ FAIL    bitbucket.org/lilissun/cleancode/color/test     0.006s
 ```
 
 The fix can be found in the *color* folder.
-We use a helper function called *round* to solve this problem. 
+We use a helper function called *round* to solve this problem.
 
 ## App Module
 
