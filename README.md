@@ -51,7 +51,25 @@ Based on the results of golint,
 [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/format/rgb2hsl.go)
 in the *format* folder can be rewritten as
 [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/lint/rgb2hsl.go)
-in the *lint* folder as an example.
+in the *lint* folder.
+
+### Name
+
+Linters can help us to identify common mistakes in coding.
+However, linters only provide a baseline for clean code.
+As can be seen from the code in *lint* folder,
+the function name, variable names and variable types are chosen badly.
+When *Convert(c)* is call in some application,
+programmers can misunderstand the functionality of *Convert*
+and the structure of *c*.
+
+Hence, in the *name* folder, we propose two methods to refine the code.
+1. We define two structures *RGBColor* and *HSLColor* to hold the color values.
+2. We define the function *ToHSL* (*ToRGB* resp.)
+as a member method in *RGBColor* (*HSLColor* resp.) for color conversion.
+
+Other member methods can be defined as well,
+e.g., constructor and equality checking function. 
 
 ## App Module
 
