@@ -121,4 +121,30 @@ we can have a pretty long function filled by if-else conditions.
 This can be problematic for maintenance in a long run.
 (Yes. Even though it has such a simple logic form, we cannot put it in our code.)
 
-### Lang - take advantages of the language you use
+### Lang - benefit from the language you use
+
+Often, we choose a programming language for some reason, especially in industry.
+For instance, C/C++ is suitable for high performance computing,
+while more maintenance efforts are needed in large applications.
+Python is suitable fast development with great community support,
+while its application/library sometimes need C++ implementation for better performance.
+Go programming language is famous for its packaging method and parallelization power.
+Hence, it is extremely suitable for implementing servers.
+
+In Go, we can easily define a mapping from strings to functions.
+Hence, we can use the service name as key and use the actual service as value.
+Whenever we received a request,
+we search for the service in the map and call the service on the value.
+Then, the registration of the services can be done
+in the corresponding service implementation files.
+By using the map, we no longer need the long if-else route function.
+Instead, the route function now becomes a simple search in the map as follows.
+
+```go
+func route(name string, req []byte) ([]byte, error) {
+	if proc, exist := router[name]; exist {
+		return proc(req)
+	}
+	return nil, fmt.Errorf("service name=[%s] is unregistered", name)
+}
+```
