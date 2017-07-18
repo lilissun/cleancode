@@ -163,3 +163,11 @@ Generally, monitors are developed based on well-defined logs.
 Then, log collectors can parse the log and get the runtime information,
 including processing time and runtime errors.
 The collected logs can be presented using some web applications, e.g., Grafana, Kibana.
+
+### App - the key of writing clean code is non-stoping refinement
+
+Yes. There must be a better way.
+The router should handle cases where duplicated keys are registered.
+The number of handles running in parallel should be limited to the maximum number of processors available.
+The logs should be written to local disks in rotated files with duration limit.
+...
