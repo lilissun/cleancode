@@ -15,7 +15,7 @@ It has the following cleaning stages.
 > Applications should use go-colorful directly,
 > and define RGBColor and HSLColor there if necessary.
 
-### Format
+### Format - use some tool to format your code
 
 Nowadays, code can be automatically formatted by
 various tools based on the programming languages.
@@ -33,7 +33,7 @@ e.g., [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for C++,
 C/C++/C#/Objective-C/D/Java/Pawn/VALA,
 [JS Beautify](https://www.npmjs.com/package/js-beautify) for JavaScript.
 
-### Lint
+### Lint - highlight error-prone code
 
 After formatting code, various linters can be used to provide hints
 on improving code based on some general guidelines of writing good code.
@@ -54,7 +54,7 @@ in the *1.format* folder can be rewritten as
 [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/2.lint/rgb2hsl.go)
 in the *2.lint* folder.
 
-### Name
+### Name - choose variable and function names wisely
 
 Linters can help us to identify common mistakes in coding.
 However, linters only provide a baseline for clean code.
@@ -72,7 +72,7 @@ as a member method in *RGBColor* (*HSLColor* resp.) for color conversion.
 Other member methods can be defined as well,
 e.g., constructor and equality checking function.
 
-### Test
+### Test - write your test cases, no joke
 
 The necessities of tests can be well illustrated
 by the test written in the *4.test* folder.
@@ -101,7 +101,7 @@ We use a helper function called *round* to solve this problem.
 App Module is an web application
 that provides conversions supported by the Color Module.
 
-### Init
+### Init - bad practice may not seem obvious
 
 Initially, we implement everything very straight forward.
 We have two functions to handle the conversions between RGB and HSL
