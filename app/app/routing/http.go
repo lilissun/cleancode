@@ -1,21 +1,22 @@
 package routing
 
 import (
-	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 // HTTPHandle for router
 func (router *Router) HTTPHandle(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
-	request := r.FormValue("req")
-	response, err := router.Route(name, []byte(request))
+	req := r.FormValue("req")
+	start := time.Now()
+	resp, err := route(name, []byte(req))
 	if err != nil {
-		log.Printf("router route name=[%s] and request=[%s] error=[%s]", name, request, err)
-		http.Error(w, fmt.Sprintf("service error: %s", err), 500)
+		log.Print(newErrorLog(name, req, err, time.Since(start)))
+		http.Error(w, err.Error(), 500)
 		return
 	}
-	log.Printf("router route name=[%s] and request=[%s] with response=[%s]", name, request, response)
-	w.Write([]byte(response))
+	log.Print(newInfoLog(name, req, string(resp), time.Since(start)))
+	w.Write(resp)
 }

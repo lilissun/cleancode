@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 var (
@@ -22,18 +23,20 @@ func route(name string, req []byte) ([]byte, error) {
 func handle(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
 	req := r.FormValue("req")
+	start := time.Now()
 	resp, err := route(name, []byte(req))
 	if err != nil {
-		log.Printf("route name=[%s] and request=[%s] error=[%s]", name, req, err)
+		log.Print(newErrorLog(name, req, err, time.Since(start)))
 		http.Error(w, err.Error(), 500)
 		return
 	}
+	log.Print(newInfoLog(name, req, string(resp), time.Since(start)))
 	w.Write(resp)
 }
 
 func main() {
 	flag.Parse()
-	http.HandleFunc("/", handle)
+	http.HandleFunc("/api", handle)
 	err := http.ListenAndServe(*flagAddress, nil)
 	if err != nil {
 		log.Printf("http server listen and serve error=[%s]", err)

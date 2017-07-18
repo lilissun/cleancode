@@ -148,3 +148,18 @@ func route(name string, req []byte) ([]byte, error) {
 	return nil, fmt.Errorf("service name=[%s] is unregistered", name)
 }
 ```
+
+### Monitor - log important things and check them regularly
+
+In reality, services, once they are started,
+need to run on servers for months/years continuously.
+Meanwhile, we have hundreds of servers
+running on hundreds of machines at the same time.
+How can we make sure that everything works as expected?
+Test cases may not be able to identify every bug.
+Hence, we need to monitor our services on live.
+
+Generally, monitors are developed based on well-defined logs.
+Then, log collectors can parse the log and get the runtime information,
+including processing time and runtime errors.
+The collected logs can be presented using some web applications, e.g., Grafana, Kibana.
