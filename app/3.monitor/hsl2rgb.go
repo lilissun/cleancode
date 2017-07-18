@@ -11,6 +11,10 @@ const (
 	HSL2RGBName = "hsl2rgb"
 )
 
+func init() {
+	router[HSL2RGBName] = hsl2rgb
+}
+
 func hsl2rgb(req []byte) ([]byte, error) {
 	var hsl color.HSLColor
 	err := json.Unmarshal([]byte(req), &hsl)

@@ -107,7 +107,6 @@ Initially, we implement everything very straight forward.
 We have two functions to handle the conversions between RGB and HSL
 in [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/app/1.init/rgb2hsl.go) and
 [hsl2rgb.go](https://github.com/lilissun/cleancode/blob/master/app/1.init/hsl2rgb.go) respectively.
-These two files are unchanged across different stages of App Module.
 They decode the color as json from the request, convert it accordingly,
 and put the JSON encoding of the converted color in the response.
 
@@ -121,3 +120,5 @@ which is quite common in reality,
 we can have a pretty long function filled by if-else conditions.
 This can be problematic for maintenance in a long run.
 (Yes. Even though it has such a simple logic form, we cannot put it in our code.)
+
+### Lang - take advantages of the language you use

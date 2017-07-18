@@ -11,11 +11,6 @@ var (
 	router      = make(map[string]func([]byte) ([]byte, error))
 )
 
-func init() {
-	router[RGB2HSLName] = rgb2hsl
-	router[HSL2RGBName] = hsl2rgb
-}
-
 func route(name string, req []byte) ([]byte, error) {
 	if proc, exist := router[name]; exist {
 		return proc(req)
