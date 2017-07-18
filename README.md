@@ -49,9 +49,9 @@ rgb2hsl.go:13:7: if block ends with a return statement, so drop this else and ou
 ```
 
 Based on the results of golint,
-[rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/format/rgb2hsl.go)
+[rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/1.format/rgb2hsl.go)
 in the *1.format* folder can be rewritten as
-[rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/lint/rgb2hsl.go)
+[rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/color/2.lint/rgb2hsl.go)
 in the *2.lint* folder.
 
 ### Name
@@ -100,3 +100,24 @@ We use a helper function called *round* to solve this problem.
 
 App Module is an web application
 that provides conversions supported by the Color Module.
+
+### Init
+
+Initially, we implement everything very straight forward.
+We have two functions to handle the conversions between RGB and HSL
+in [rgb2hsl.go](https://github.com/lilissun/cleancode/blob/master/app/1.init/rgb2hsl.go) and
+[hsl2rgb.go](https://github.com/lilissun/cleancode/blob/master/app/1.init/hsl2rgb.go) respectively.
+These two files are unchanged across different stages of App Module.
+They decode the color as json from the request, convert it accordingly,
+and put the JSON encoding of the converted color in the response.
+
+In [main.go](https://github.com/lilissun/cleancode/blob/master/app/1.init/main.go),
+when the http request is received,
+we use a if-else condition (or we can use a switch condition) to decide
+which function should be called on the request payload.
+
+Imagining that we have such a http server for hundreds of functions,
+which is quite common in reality,
+we can have a pretty long function filled by if-else conditions.
+This can be problematic for maintenance in a long run.
+(Yes. Even though it has such a simple logic form, we cannot put it in our code.)
