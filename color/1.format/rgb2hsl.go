@@ -7,6 +7,7 @@ import (
 	colorful "github.com/lucasb-eyer/go-colorful"
 )
 
+// Convert color from RGB space to HSL space
 func Convert(c[]float64) (error,[]float64) {
 if len(c)!=3{
 return errors.New(fmt.Sprintf("color dimension=[%d] error", len(c))), nil
