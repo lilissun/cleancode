@@ -1,0 +1,1 @@
+http://localhost:3000/api?name=rgb2hsl&req={"Red":0.5,"Green":0.1,"Blue":0.9}

@@ -27,7 +27,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	resp, err := route(name, []byte(req))
 	if err != nil {
 		log.Print(newErrorLog(name, req, err, time.Since(start)))
-		http.Error(w, err.Error(), 500)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	log.Print(newInfoLog(name, req, string(resp), time.Since(start)))

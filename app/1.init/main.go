@@ -25,7 +25,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	req := r.FormValue("req")
 	resp, err := route(name, []byte(req))
 	if err != nil {
-		http.Error(w, err.Error(), 500)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	w.Write(resp)
