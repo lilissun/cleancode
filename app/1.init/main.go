@@ -33,6 +33,6 @@ func handle(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	flag.Parse()
-	http.HandleFunc("/", handle)
+	http.HandleFunc("/api", handle)
 	http.ListenAndServe(*flagAddress, nil)
 }
