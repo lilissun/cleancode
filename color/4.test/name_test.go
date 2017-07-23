@@ -11,7 +11,7 @@ import (
 // Hue == 270
 // Saturation == 0.8
 // Luminance == 0.5
-func TestConvertRGBtoHSL(t *testing.T) {
+func TestColorConversion(t *testing.T) {
 	rgb := NewRGBColor(0.5, 0.1, 0.9)
 	hsl := NewHSLColor(270, 0.8, 0.5)
 	newhsl := rgb.ToHSL()
