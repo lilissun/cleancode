@@ -11,7 +11,7 @@ func (router *Router) HTTPHandle(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
 	req := r.FormValue("req")
 	start := time.Now()
-	resp, err := route(name, []byte(req))
+	resp, err := router.Route(name, []byte(req))
 	if err != nil {
 		log.Print(newErrorLog(name, req, err, time.Since(start)))
 		http.Error(w, err.Error(), 500)

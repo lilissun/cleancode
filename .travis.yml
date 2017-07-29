@@ -1,7 +1,8 @@
 language: go
 
 script:
-  - go test -race -v ./...
+  - go test -race -v ./color/color/...
+  - go test -race -v ./app/app/...
 
 go:
   - 1.4
